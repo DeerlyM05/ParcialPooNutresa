@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Olla {
+public class Olla{
     private final int capacidadGramos;
     private final ArrayList<Ingrediente> ingredientes;
 
@@ -28,9 +28,9 @@ public class Olla {
             System.out.println("No se agregó " + nuevo.getNombre() + ": no está fresco.");
             return false;
         }
-        if (buscarPorCodigo(nuevo.getCodigo()) != null) {
+        if (buscarPorCodigo(nuevo.obtenerCodigo()) != null) {
             System.out.println("No se agregó " + nuevo.getNombre()
-                    + ": el código " + nuevo.getCodigo() + " ya está en la olla.");
+                    + ": el código " + nuevo.obtenerCodigo() + " ya está en la olla.");
             return false;
         }
         if (calcularPesoTotal() > capacidadGramos) {
@@ -41,13 +41,14 @@ public class Olla {
         return true;
     }
 
-    /** Retorna el ingrediente con ese código o null si no está en la olla. */
+   /** Retorna el ingrediente con ese código o null si no está en la olla. */
     public Ingrediente buscarPorCodigo(String codigo) {
         for (Ingrediente i : ingredientes) {
             if (i.getNombre().equals(codigo)) {
                 return i;
             }
         }
+        return null;
     }
 
     public int calcularPesoTotal() {
@@ -61,7 +62,7 @@ public class Olla {
     /** Suma el costo de TODOS los ingredientes de la olla. */
     public double calcularCostoIngredientes() {
         double total = 0;
-        for (int i = 1; i < ingredientes.length; i++) {
+        for (int i = 1; i < ingredientes.size(); i++) {
             total += ingredientes.get(i).calcularCosto();
         }
         return total;

@@ -11,9 +11,14 @@ public class Acompanamiento implements Costeable {
     }
 
     public String getNombre() { return nombre; }
-    public double getPrecio() { return precio }
+    public double getPrecio() { return precio; }
 
     public double calcularPrecio() {
         return precio;
+    }
+
+    @Override
+    public double calcularCosto() {
+        throw new UnsupportedOperationException("Este es un acompañamiento.");
     }
 }
