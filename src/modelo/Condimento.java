@@ -30,6 +30,6 @@ public class Condimento extends Ingrediente {
 
     @Override
     public String obtenerCodigo() {
-        throw new UnsupportedOperationException("Esto es un condimento.");
+        return super.obtenerCodigo();
     }
 }

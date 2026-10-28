@@ -19,6 +19,6 @@ public class Acompanamiento implements Costeable {
 
     @Override
     public double calcularCosto() {
-        throw new UnsupportedOperationException("Este es un acompañamiento.");
+        return precio;
     }
 }
